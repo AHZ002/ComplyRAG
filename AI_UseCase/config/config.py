@@ -13,8 +13,6 @@ GROQ_MODEL = "llama-3.1-70b-versatile"
 # RAG settings
 SIMILARITY_THRESHOLD = 0.45
 TOP_K = 3
-CHUNK_SIZE = 500
-CHUNK_OVERLAP = 50
 
 # Data directory
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
