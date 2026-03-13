@@ -1,6 +1,6 @@
 # 🛡️ ComplyRAG — AI-Powered Compliance Assistant
 
-> An intelligent chatbot that answers questions about compliance frameworks including NIST Cybersecurity Framework, ISO 27001, and SOC 2 — using RAG over official documentation with live web search fallback.
+> An intelligent chatbot that answers questions about compliance frameworks like NIST Cybersecurity Framework, ISO 27001, and SOC 2 using RAG over official documentation with live web search fallback.
 
 **Live Demo:** [https://complyrag.streamlit.app/](https://complyrag.streamlit.app/)
 
@@ -13,7 +13,7 @@ ComplyRAG is built as part of the NeoStats AI Engineer assignment. It demonstrat
 - Queries about **NIST CSF** are answered from local documentation using semantic search
 - Queries about **ISO 27001, SOC 2, or any other compliance topic** fall back to live Tavily web search automatically
 - Users can toggle between **Concise** and **Detailed** response modes
-- Every response includes **source attribution** — showing whether the answer came from local documents or the web
+- Every response includes **source attribution**  showing whether the answer came from local documents or the web
 
 ---
 
@@ -56,7 +56,7 @@ Similarity Score ≥ 0.55?
     └── NO  → Tavily Web Search → Groq LLM → Response (🌐 Web Source)
 ```
 
-The routing decision is made purely on similarity score — no additional LLM call needed. This keeps the pipeline fast and deterministic.
+The routing decision is made purely on similarity score, no additional LLM call needed. This keeps the pipeline fast and deterministic.
 
 ---
 
@@ -140,7 +140,7 @@ Open [http://localhost:8501](http://localhost:8501) in your browser.
 ## ✨ Features
 
 ### Mandatory (Assignment Requirements)
-- ✅ **RAG Integration** — FAISS vector index over NIST CSF PDF, top-3 chunk retrieval per query
+- ✅ **RAG Integration** — FAISS vector index, top-3 chunk retrieval per query
 - ✅ **Live Web Search** — Tavily API triggered automatically when local similarity score < 0.55
 - ✅ **Response Modes** — Toggle between Concise (2-3 sentences) and Detailed (structured explanation) in sidebar
 
@@ -185,9 +185,8 @@ TAVILY_API_KEY = "your_tavily_api_key"
 
 ## 🔮 Future Enhancements
 
-- **Company document upload** — Allow users to upload internal policy documents and check compliance against NIST/ISO 27001/SOC 2
+- **Company document upload** — Allow users to upload internal policy documents and check compliance against NIST/ISO 27001/SOC 2 or any other complaint framework.
 - **Hybrid retrieval** — Combine FAISS semantic search with BM25 keyword matching for more precise compliance term retrieval
-- **Multi-framework knowledge base** — Add full ISO 27001 and SOC 2 documents to local RAG
 - **Compliance gap analysis** — Automatically identify missing controls in uploaded policy documents
 
 ---
