@@ -1,14 +1,12 @@
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from sentence_transformers import SentenceTransformer
+import numpy as np
 
-# Load the embedding model
+# Global model instance to avoid reloading
 _model = None
 
-def load_embedding_model():
-    """Load and return the sentence transformer embedding model"""
+
+def load_embedding_model() -> SentenceTransformer:
+    """Load and return the sentence transformer embedding model (singleton)"""
     try:
         global _model
         if _model is None:
@@ -17,10 +15,11 @@ def load_embedding_model():
     except Exception as e:
         raise RuntimeError(f"Failed to load embedding model: {str(e)}")
 
-def get_embeddings(texts: list[str], model: SentenceTransformer) -> list:
+
+def get_embeddings(texts: list[str], model: SentenceTransformer) -> np.ndarray:
     """Generate embeddings for a list of texts"""
     try:
         embeddings = model.encode(texts, show_progress_bar=False)
-        return embeddings
+        return np.array(embeddings).astype("float32")
     except Exception as e:
         raise RuntimeError(f"Failed to generate embeddings: {str(e)}")
