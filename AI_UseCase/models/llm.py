@@ -1,8 +1,8 @@
 import os
 import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from config.config import GROQ_API_KEY, GROQ_MODEL
 
 

@@ -1,5 +1,7 @@
 import streamlit as st
 import os
+import sys
+sys.path.insert(0, os.path.dirname(__file__))
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from models.llm import get_chatgroq_model, get_chat_response
 from models.embeddings import load_embedding_model

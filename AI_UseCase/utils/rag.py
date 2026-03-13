@@ -1,5 +1,7 @@
 import os
-import fitz  # PyMuPDF
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+import fitz
 import numpy as np
 import faiss
 from config.config import DATA_DIR, TOP_K, SIMILARITY_THRESHOLD

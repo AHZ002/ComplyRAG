@@ -1,6 +1,8 @@
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 from tavily import TavilyClient
 from config.config import TAVILY_API_KEY
-
 
 def web_search(query: str, max_results: int = 3) -> tuple[str, list[str]]:
     """
