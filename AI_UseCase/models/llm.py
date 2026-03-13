@@ -1,6 +1,8 @@
 import os
+import sys
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from config.config import GROQ_API_KEY, GROQ_MODEL
 
 
@@ -33,17 +35,19 @@ Use the following retrieved context to answer the user's question about complian
 Context:
 {context}
 
-If the context is insufficient to answer the question, clearly say so and provide
-what general knowledge you have about the topic."""
+If the context is insufficient to answer the question, clearly state that you 
+do not have enough information from the available documents.Do NOT make up or assume any compliance requirements, controls, or standards."""
 
         formatted_messages = [SystemMessage(content=full_system_prompt)]
 
-        for msg in messages[:-1]:
+        # Add conversation history
+        for msg in messages[:-1]:  # exclude last user message, already added below
             if msg["role"] == "user":
                 formatted_messages.append(HumanMessage(content=msg["content"]))
             else:
                 formatted_messages.append(AIMessage(content=msg["content"]))
 
+        # Add latest user message
         formatted_messages.append(HumanMessage(content=messages[-1]["content"]))
 
         response = chat_model.invoke(formatted_messages)

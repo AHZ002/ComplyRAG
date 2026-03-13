@@ -8,10 +8,10 @@ GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 TAVILY_API_KEY = os.environ.get("TAVILY_API_KEY", "")
 
 # Model settings
-GROQ_MODEL = "llama-3.1-70b-versatile"
+GROQ_MODEL = "llama-3.3-70b-versatile"
 
 # RAG settings
-SIMILARITY_THRESHOLD = 0.45
+SIMILARITY_THRESHOLD = 0.55
 TOP_K = 3
 
 # Data directory
