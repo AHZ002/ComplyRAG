@@ -198,10 +198,4 @@ TAVILY_API_KEY = "your_tavily_api_key"
 
 ---
 
-## 📄 License
-
-This project was built as part of the NeoStats AI Engineer hiring assignment.
-
----
-
 *Built by Abdul Hadi Zeeshan — March 2026*
